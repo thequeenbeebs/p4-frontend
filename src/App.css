@@ -1,8 +1,61 @@
-.App {
+body {
   text-align: center;
+  background-image: url('https://images-na.ssl-images-amazon.com/images/I/61gCgYJfQiL._AC_SL1100_.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+  font-family: Georgia;
 }
 
-.App-logo {
+.header {
+  background-color: black;
+  color: white;
+  text-transform: uppercase;
+  width: 100%;
+  padding: 20px;
+}
+
+h1 {
+  font-family: 'Creepster', cursive;
+  font-size: 50px;
+}
+
+#title-img {
+  max-height: 150px;
+  float: right;
+  padding-top: 0;
+}
+
+a {
+  font-weight: bold;
+  color: white;
+}
+
+.right {
+  float: right;
+}
+
+.left {
+  float: left;
+}
+
+.card {
+  width: 25%;
+  background-color: white;
+  margin: 20px;
+  padding: 5px;
+}
+
+.scream {
+  max-height: 30px;
+}
+
+.poster {
+  max-height: 200px;
+}
+
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -35,4 +88,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
