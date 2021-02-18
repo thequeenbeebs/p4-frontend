@@ -37,34 +37,29 @@ class App extends React.Component {
   }
 
   addToMovieList = (movie) => {
-    let newMovie = {...movie, userScreamFactor: ""}
-    let updatedMovies = {
-      movies: [...this.state.currentUser.movies, newMovie]
+    let newUserMovie = {
+      movie_id: movie.id,
+      user_id: this.state.currentUser.id
     }
 
     let reqPack = {}
-        reqPack.method = "PATCH"
+        reqPack.method = "POST"
         reqPack.headers = {"Content-Type": "application/json"}
-        reqPack.body = JSON.stringify(updatedMovies)
+        reqPack.body = JSON.stringify(newUserMovie)
 
-    fetch(`http://localhost:3000/users/${this.state.currentUser.id}`, reqPack)
-    .then(resp => resp.json())
-    .then(updatedUser => this.setState({currentUser: updatedUser}))
+    fetch(`http://localhost:3000/user_movies`, reqPack)
+
+    let updatedMovies = [...this.state.currentUser.movies, movie]
+    this.setState({currentUser: {...this.state.currentUser, movies: updatedMovies}})
   }
 
   removeFromMovieList = (movie) => {
-    let updatedMovies = {
-      movies: this.state.currentUser.movies.filter(mov => mov !== movie)
-    }
+    let userMovie = this.state.currentUser.user_movies.find(um => um.movie_id === movie.id)
 
-    let reqPack = {}
-        reqPack.method = "PATCH"
-        reqPack.headers = {"Content-Type": "application/json"}
-        reqPack.body = JSON.stringify(updatedMovies)
-
-    fetch(`http://localhost:3000/users/${this.state.currentUser.id}`, reqPack)
-      .then(resp => resp.json())
-      .then(updatedUser => this.setState({currentUser: updatedUser}))
+    fetch(`http://localhost:3000/user_movies/${userMovie.id}`, {method: "DELETE"})
+    
+    let updatedMovies = this.state.currentUser.movies.filter(mv => mv.id !== movie.id)
+    this.setState({currentUser: {...this.state.currentUser, movies: updatedMovies}})
   }
 
   updateRating = (movie, event) => {

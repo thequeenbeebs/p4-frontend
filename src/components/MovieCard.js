@@ -36,7 +36,7 @@ class MovieCard extends React.Component {
                 {this.props.currentUser && this.props.currentUser.movies.some(mov => mov.id === this.props.movie.id) ? <button onClick={() => this.props.removeFromMovieList(this.props.movie)}>Remove from Movie List</button> : null}
                 {this.props.currentUser && !this.props.currentUser.movies.some(mov => mov.id === this.props.movie.id) ? <button onClick={() => this.props.addToMovieList(this.props.movie)}>Add to Movie List</button> : null }   
                 <div style={{ display: this.state.modal ? "block" : "none" }}>
-                    <MovieModal movie={this.props.movie} exitModal={this.exitModal}/>
+                    {/* <MovieModal movie={this.props.movie} exitModal={this.exitModal}/> */}
                 </div>
             </div>
                 
