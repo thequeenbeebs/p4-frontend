@@ -81,12 +81,13 @@ class App extends React.Component {
     let updatedMovie = {...movie, user_scream_rating: parseInt(event.target.value)}
     this.setState({
       currentUser: {
+        ...this.state.currentUser,
         movies: [...this.state.currentUser.movies.map(mv => mv.id === updatedMovie.id ? updatedMovie : mv)]
       } 
     })
 
     // TO WORK ON -- SETTING UP AVERAGE SCREAM FACTOR
-    
+
     // let movieRatings = {
     //   screamFactor: [...movie.screamFactor, parseInt(event.target.value)]
     // }
