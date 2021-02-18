@@ -39,7 +39,8 @@ class App extends React.Component {
   addToMovieList = (movie) => {
     let newUserMovie = {
       movie_id: movie.id,
-      user_id: this.state.currentUser.id
+      user_id: this.state.currentUser.id,
+      user_scream_rating: 0
     }
 
     let reqPack = {}
@@ -63,33 +64,41 @@ class App extends React.Component {
   }
 
   updateRating = (movie, event) => {
-    let newMovie = {...movie, userScreamFactor: parseInt(event.target.value)}
-    
-    let updatedMovies = {
-      movies: this.state.currentUser.movies.map(movie => movie.id === newMovie.id ? newMovie : movie)
+    let userMovie = this.state.currentUser.user_movies.find(um => um.movie_id === movie.id)
+    let newRating = {
+      user_scream_rating: parseInt(event.target.value)
     }
 
     let reqPack = {}
         reqPack.method = "PATCH"
         reqPack.headers = {"Content-Type": "application/json"}
-        reqPack.body = JSON.stringify(updatedMovies)
+        reqPack.body = JSON.stringify(newRating)
 
-    fetch(`http://localhost:3000/users/${this.state.currentUser.id}`, reqPack)
+    fetch(`http://localhost:3000/user_movies/${userMovie.id}`, reqPack)
       .then(resp => resp.json())
-      .then(updatedUser => this.setState({currentUser: updatedUser}))
+      .then(console.log)
 
-    let movieRatings = {
-      screamFactor: [...movie.screamFactor, parseInt(event.target.value)]
-    }
+    let updatedMovie = {...movie, user_scream_rating: parseInt(event.target.value)}
+    this.setState({
+      currentUser: {
+        movies: [...this.state.currentUser.movies.map(mv => mv.id === updatedMovie.id ? updatedMovie : mv)]
+      } 
+    })
 
-    let requestPack = {}
-        requestPack.method = "PATCH"
-        requestPack.headers = {"Content-Type": "application/json"}
-        requestPack.body = JSON.stringify(movieRatings)
+    // TO WORK ON -- SETTING UP AVERAGE SCREAM FACTOR
+    
+    // let movieRatings = {
+    //   screamFactor: [...movie.screamFactor, parseInt(event.target.value)]
+    // }
 
-        fetch(`http://localhost:3000/movies/${movie.id}`, requestPack)
-        .then(resp => resp.json())
-        .then(updatedMovie => this.setState({movies: this.state.currentUser.movies.map(movie => movie.id === updatedMovie.id ? updatedMovie : movie)}))
+    // let requestPack = {}
+    //     requestPack.method = "PATCH"
+    //     requestPack.headers = {"Content-Type": "application/json"}
+    //     requestPack.body = JSON.stringify(movieRatings)
+
+    //     fetch(`http://localhost:3000/movies/${movie.id}`, requestPack)
+    //     .then(resp => resp.json())
+    //     .then(updatedMovie => this.setState({movies: this.state.currentUser.movies.map(movie => movie.id === updatedMovie.id ? updatedMovie : movie)}))
   }
 
   addToShoppingCart = (item) => {
