@@ -1,19 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
 body {
   text-align: center;
   background-image: url('https://images-na.ssl-images-amazon.com/images/I/61gCgYJfQiL._AC_SL1100_.jpg');
   background-size: cover;
   background-attachment: fixed;
+  font-family: Georgia;
   margin: 0;
   padding: 0;
-  font-family: Georgia;
 }
 
 .header {
   background-color: black;
   color: white;
-  text-transform: uppercase;
+  /* text-transform: uppercase;
   width: 100%;
-  padding: 20px;
+  height: 150px;
+  padding-right: 50px;
+  padding-top: 50px;
+  position: fixed;  */
+}
+
+.navlinks {
+  background-color: black;
+  color: white;
+  text-transform: uppercase;
+  /* width: 100%;
+  padding-left: 50px;
+  height: 30px;
+  position: fixed;
+   top: 200px; */
+   display: flex;
+   flex-direction: row;
+} 
+
+.navlinks > * {
+  padding: 50px;
 }
 
 h1 {
@@ -32,12 +58,18 @@ a {
   color: white;
 }
 
-.right {
+/* .right {
   float: right;
 }
 
 .left {
   float: left;
+} */
+
+.main-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .card {
@@ -45,6 +77,7 @@ a {
   background-color: white;
   margin: 20px;
   padding: 5px;
+  border: 3px solid black;
 }
 
 .scream {

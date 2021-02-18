@@ -4,11 +4,11 @@ import { NavLink } from 'react-router-dom';
 const UserPageWelcome = (props) => {
     return (
         <div>
-            <h1>{`Welcome, ${props.user.username}!`}</h1>
+            <h3>{`Welcome, ${props.user.username}!`}</h3>
             <NavLink
                 to="/movielist"
                 exact
-                >MovieList</NavLink> <br/>
+                >Movie List</NavLink> <br/>
             <NavLink
                 to="/shoppingcart"
                 exact

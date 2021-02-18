@@ -5,8 +5,9 @@ const RatingForm = ({ currentUser, movie, updateRating}) => {
     return (
         <div>
             <b>Your rating: </b>
-            <select value={currentMovie ? currentMovie.screamFactor : null}
+            <select value={currentMovie.userScreamFactor ? currentMovie.userScreamFactor : "default"}
                 onChange={event => updateRating(movie, event)}>
+                <option value="default" disabled>Rate This Movie</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>

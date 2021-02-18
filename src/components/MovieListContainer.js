@@ -3,7 +3,7 @@ import MovieCard from './MovieCard';
 
 const MovieListContainer = (props) => {
         return (
-            <div>
+            <div className="main-container">
                 {props.currentUser 
                 ? props.currentUser.movies.map(movie => <MovieCard movie={movie} key={movie.id}
                     currentUser={props.currentUser}

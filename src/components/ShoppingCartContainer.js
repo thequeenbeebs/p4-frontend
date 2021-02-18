@@ -1,9 +1,14 @@
 import React from 'react';
+import ItemCard from './ItemCard'
 
-const ShoppingCartContainer = () => {
+const ShoppingCartContainer = ({currentUser}) => {
         return (
-            <div>
-                <h1>Shopping Cart Goes Here</h1>
+            <div className="main-container">
+                {currentUser 
+                ? currentUser.items.map(item => <ItemCard item={item} key={item.id}
+                    currentUser={currentUser}
+                    />)
+                : <h1>Please Log in to view your shopping cart!</h1>}
             </div>
         )
 }

@@ -1,9 +1,16 @@
 import React from 'react';
 import RatingForm from './RatingForm'
 
+const average = arr => {
+    let sum = 0
+    for(let i = 0; i < arr.length; i++) {
+        sum += arr[i]
+    }
+    return sum / arr.length
+}
 
 const MovieCard = ({ movie, addToMovieList, currentUser, removeFromMovieList, updateRating}) => {
-    const average = arr => arr.reduce((sume, el) => sume + el, 0) / arr.length
+    
     let avgScreamFactor = parseInt(average(movie.screamFactor))
     return (
         <div className="card">
