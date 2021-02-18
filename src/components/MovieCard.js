@@ -16,15 +16,20 @@ class MovieCard extends React.Component {
     }
 
     exitModal = () => {
-        this.setState({modal: false})
+        console.log('click', this.props.movie)
+        this.setState({
+            modal: false
+        }, () => {console.log(this.state, 'state updated')})
     }
 
     render() {
         // let avgScreamFactor = parseInt(this.average(this.props.movie.scream_factor))
         return (
-            <div className="card" onClick={() => this.setState({modal: true})}>
-                <img className="poster" src={this.props.movie.image} alt={this.props.movie.title}></img>
-                <h2>{this.props.movie.title}</h2>
+            <div className="card" >
+                <img className="poster" src={this.props.movie.image} 
+                    alt={this.props.movie.title}
+                    onClick={() => this.setState({modal: true})}></img>
+                {/* <h2>{this.props.movie.title}</h2>
                 <h3>{this.props.movie.year}</h3>
                 <h4>Director: {this.props.movie.director}</h4>
                 <h4>Genre: {this.props.movie.genre}</h4>
@@ -34,10 +39,12 @@ class MovieCard extends React.Component {
                     : null}
                 <p><b>Summary:</b> {this.props.movie.summary}</p>
                 {this.props.currentUser && this.props.currentUser.movies.some(mov => mov.id === this.props.movie.id) ? <button onClick={() => this.props.removeFromMovieList(this.props.movie)}>Remove from Movie List</button> : null}
-                {this.props.currentUser && !this.props.currentUser.movies.some(mov => mov.id === this.props.movie.id) ? <button onClick={() => this.props.addToMovieList(this.props.movie)}>Add to Movie List</button> : null }   
-                <div style={{ display: this.state.modal ? "block" : "none" }}>
-                    {/* <MovieModal movie={this.props.movie} exitModal={this.exitModal}/> */}
-                </div>
+                {this.props.currentUser && !this.props.currentUser.movies.some(mov => mov.id === this.props.movie.id) ? <button onClick={() => this.props.addToMovieList(this.props.movie)}>Add to Movie List</button> : null }    */}
+                {this.state.modal 
+                    ? <div>
+                        <MovieModal movie={this.props.movie} exitModal={this.exitModal}/>
+                    </div>
+                    : null }
             </div>
                 
         )
