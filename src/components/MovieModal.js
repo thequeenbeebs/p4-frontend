@@ -26,7 +26,7 @@ class MovieModal extends React.Component {
                 {this.props.currentUser && this.props.currentUser.movies.some(mov => mov.id === this.props.movie.id)
                     ? <RatingForm currentUser={this.props.currentUser} movie={this.props.movie} updateRating={this.props.updateRating}/> 
                     : null}
-                <p><b>Summary:</b> {this.props.movie.summary}</p>
+                <p><b>Synopsis:</b> {this.props.movie.synopsis}</p>
                 {this.props.currentUser && this.props.currentUser.movies.some(mov => mov.id === this.props.movie.id) ? <button onClick={() => this.props.removeFromMovieList(this.props.movie)}>Remove from Movie List</button> : null}
                 {this.props.currentUser && !this.props.currentUser.movies.some(mov => mov.id === this.props.movie.id) ? <button onClick={() => this.props.addToMovieList(this.props.movie)}>Add to Movie List</button> : null }   
                 </div>

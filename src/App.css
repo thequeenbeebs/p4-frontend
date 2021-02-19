@@ -1,23 +1,23 @@
 * {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-
 body {
-  text-align: center;
-  background-image: url('https://images-na.ssl-images-amazon.com/images/I/61gCgYJfQiL._AC_SL1100_.jpg');
-  background-size: cover;
-  background-attachment: fixed;
-  font-family: Georgia;
-  margin: 0;
-  padding: 0;
+    text-align: center;
+    background-image: url("https://images-na.ssl-images-amazon.com/images/I/61gCgYJfQiL._AC_SL1100_.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: Georgia;
+    margin: 0;
+    padding: 0;
 }
 
 .header {
-  background-color: black;
-  color: white;
-  /* text-transform: uppercase;
+    background-color: black;
+    color: white;
+    /* text-transform: uppercase;
   width: 100%;
   height: 150px;
   padding-right: 50px;
@@ -26,36 +26,43 @@ body {
 }
 
 .navlinks {
-  background-color: black;
-  color: white;
-  text-transform: uppercase;
-  /* width: 100%;
+    background-color: black;
+    color: white;
+    text-transform: uppercase;
+    /* width: 100%;
   padding-left: 50px;
   height: 30px;
   position: fixed;
    top: 200px; */
-   display: flex;
-   justify-content: space-evenly;
-} 
+    display: flex;
+    justify-content: space-evenly;
+}
 
 .navlinks > * {
-  padding: 50px;
+    padding: 0;
+    margin: 0;
+    font-family: "Creepster", cursive;
+    font-size: 30px;
+    background: black;
+    /* transform: rotate(-5deg) skewX(25deg) translate(0, 0); */
+
+    /* box-shadow: -20px 20pix 10pix rgba(0, 0, 0, 0.5); */
 }
 
 h1 {
-  font-family: 'Creepster', cursive;
-  font-size: 50px;
+    font-family: "Creepster", cursive;
+    font-size: 65px;
 }
 
 #title-img {
-  max-height: 150px;
-  float: right;
-  padding-top: 0;
+    max-height: 135px;
+    float: right;
+    padding-top: 0;
 }
 
 a {
-  font-weight: bold;
-  color: white;
+    font-weight: bold;
+    color: white;
 }
 
 /* .right {
@@ -67,69 +74,96 @@ a {
 } */
 
 .main-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
-
+/* .card-container {
+    width: 25%;
+    background-color: black;
+} */
 .card {
-  width: 25%;
-  background-color: white;
-  margin: 20px;
-  padding: 5px;
-  border: 3px solid black;
+    /* width: 25%; */
+
+    background-color: black;
+    margin: 30px;
+    padding: 5px;
+    border: 3px solid black;
+    width: 15rem;
+    height: 17rem;
+    border-radius: 30px;
+
+    /* box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2), 0px 0px 50px rgba(0, 0, 0, 0.2); */
 }
 
 .poster:hover {
-  border: 3px solid red;
+    border: 3px solid red;
 }
 
 .scream {
-  max-height: 30px;
+    max-height: 30px;
 }
 
 .poster {
-  max-height: 200px;
+    min-height: 35vh;
+    max-height: 200px;
+    border-radius: 20px;
 }
 
 .modal {
-  /* display: none; */
-  position: fixed; 
-  padding-top: 50px;
-  left: 0; 
-  top: 0;
-  width: 100%;
-  height: 100%; 
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.5);
+    /* display: none; */
+    position: fixed;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
 }
 .modal-content {
-  position: relative; 
-  background-color: white;
-  padding: 20px; 
-  margin: auto; 
-  width: 75%;  
-  -webkit-animation-name: animatetop;
-  -webkit-animation-duration: 0.4s;
-  animation-name: animatetop;
-  animation-duration: 0.4s
+    position: relative;
+    background-color: white;
+    padding: 50px;
+    margin: auto;
+    width: 100%;
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    border-radius: 30px;
 }
 .close-btn {
-  float: right; 
-  color: lightgray; 
-  font-size: 24px;  
-  font-weight: bold;
+    float: right;
+    color: lightgray;
+    font-size: 24px;
+    font-weight: bold;
 }
 .close-btn:hover {
-  color: darkgray;
+    color: darkgray;
 }
+
 @-webkit-keyframes animatetop {
-  from {top:-300px; opacity:0} 
-  to {top:0; opacity:1}
+    from {
+        top: -300px;
+        opacity: 0;
+    }
+    to {
+        top: 0;
+        opacity: 1;
+    }
 }
 @keyframes animatetop {
-  from {top:-300px; opacity:0}
-  to {top:0; opacity:1}
+    from {
+        top: -300px;
+        opacity: 0;
+    }
+    to {
+        top: 0;
+        opacity: 1;
+    }
 }
 
 /* .App-logo {

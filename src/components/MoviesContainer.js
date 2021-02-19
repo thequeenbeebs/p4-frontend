@@ -1,19 +1,22 @@
-import React from 'react';
-import MovieCard from './MovieCard'
+import React from "react";
+import MovieCard from "./MovieCard";
 
-class MoviesContainer extends React.Component{
+class MoviesContainer extends React.Component {
     render() {
-        return(
+        return (
             <div className="main-container">
-                {this.props.movies.map(movie => <MovieCard movie={movie} key={movie.id} 
-                    addToMovieList={this.props.addToMovieList}
-                    removeFromMovieList={this.props.removeFromMovieList}
-                    currentUser={this.props.currentUser}
-                    updateRating={this.props.updateRating}
-                    />)}
+                {this.props.movies.map((movie) => (
+                    <MovieCard
+                        movie={movie}
+                        key={movie.id}
+                        addToMovieList={this.props.addToMovieList}
+                        removeFromMovieList={this.props.removeFromMovieList}
+                        currentUser={this.props.currentUser}
+                        updateRating={this.props.updateRating}
+                    />
+                ))}
             </div>
-            
-        )
+        );
     }
 }
 
