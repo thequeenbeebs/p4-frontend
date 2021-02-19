@@ -1,5 +1,5 @@
 import React from 'react';
-import RatingForm from './RatingForm'
+// import RatingForm from './RatingForm'
 import MovieModal from './MovieModal'
 
 class MovieCard extends React.Component {
@@ -42,7 +42,13 @@ class MovieCard extends React.Component {
                 {this.props.currentUser && !this.props.currentUser.movies.some(mov => mov.id === this.props.movie.id) ? <button onClick={() => this.props.addToMovieList(this.props.movie)}>Add to Movie List</button> : null }    */}
                 {this.state.modal 
                     ? <div>
-                        <MovieModal movie={this.props.movie} exitModal={this.exitModal}/>
+                        <MovieModal movie={this.props.movie} 
+                            exitModal={this.exitModal} 
+                            currentUser={this.props.currentUser}
+                            updateRating={this.props.updateRating}
+                            removeFromMovieList={this.props.removeFromMovieList}
+                            addToMovieList={this.props.addToMovieList}
+                        />
                     </div>
                     : null }
             </div>

@@ -15,7 +15,7 @@ class MovieModal extends React.Component {
             <div className="modal" >
                 <div className="modal-content">
                 <span class="close-btn" onClick={this.handleClick}>&times;</span>
-                <img className="poster" src={this.props.movie.image} 
+                <img className="poster-modal left" src={this.props.movie.image} 
                     alt={this.props.movie.title}
                     ></img>
                 <h2>{this.props.movie.title}</h2>
@@ -26,9 +26,10 @@ class MovieModal extends React.Component {
                 {this.props.currentUser && this.props.currentUser.movies.some(mov => mov.id === this.props.movie.id)
                     ? <RatingForm currentUser={this.props.currentUser} movie={this.props.movie} updateRating={this.props.updateRating}/> 
                     : null}
-                <p><b>Summary:</b> {this.props.movie.summary}</p>
+                <p><b>Summary:</b> {this.props.movie.synopsis}</p>
                 {this.props.currentUser && this.props.currentUser.movies.some(mov => mov.id === this.props.movie.id) ? <button onClick={() => this.props.removeFromMovieList(this.props.movie)}>Remove from Movie List</button> : null}
                 {this.props.currentUser && !this.props.currentUser.movies.some(mov => mov.id === this.props.movie.id) ? <button onClick={() => this.props.addToMovieList(this.props.movie)}>Add to Movie List</button> : null }   
+                
                 </div>
             </div>
         )
